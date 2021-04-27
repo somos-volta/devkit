@@ -1,0 +1,63 @@
+@mixin vertical-centering {
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+@mixin overlay($position:null,$spacing:0) {
+    position: absolute;
+    @if $position {
+      #{$position}: $spacing;
+    }
+}
+
+@mixin overlay-position($position:null,$spacing:0) {
+    @if ($position == "left") {
+      left: $spacing;
+      right: auto;
+    }
+    @else if ($position == "right") {
+      right: $spacing;
+      left: auto;
+    }
+    @else if ($position == "center")  {
+      right: $spacing;
+      left: $spacing;
+    }
+    @else {
+      right: auto;
+      left: auto;
+    }
+}
+
+@mixin overlay-spacing($position:null,$spacing:0) {
+    @include overlay-position($position,$spacing);
+}
+
+@mixin overlay-on-top($position:null,$spacing:0) {
+    @include overlay(top,$spacing);
+    @include overlay-position($position,$spacing);
+}
+
+@mixin overlay-on-middle($position:null,$spacing:0) {
+    @include overlay;
+    @include vertical-centering;
+    @include overlay-position($position,$spacing);
+}
+
+@mixin overlay-on-bottom($position:null,$spacing:0) {
+    @include overlay(bottom,$spacing);
+    @include overlay-position($position,$spacing);
+}
+
+@mixin overlay-on-left($position:null,$spacing:0) {
+    @include overlay(left,$spacing);
+    top: 0;
+    bottom: 0;
+}
+
+@mixin overlay-on-right($position:null,$spacing:0) {
+    @include overlay(right,$spacing);
+    top: 0;
+    bottom: 0;
+}
