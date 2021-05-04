@@ -1,9 +1,8 @@
-
 $caret-border-width:   1px !default;
 $caret-height-base:    80px !default;
 
 @mixin caret-size($size) {
-  $this-caret-height:        $size;
+  $this-caret-height:         $size;
   $this-caret-height:         ($this-caret-height - ($caret-border-width * 2)) / 2;
   $this-caret-width:          10px;
   $this-border-caret-height:  $this-caret-height + 2;
