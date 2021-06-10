@@ -1,0 +1,10 @@
+// Make this work
+// $selectors: (
+//   //textarea, input, .select, .input {
+//   buttons: "button, [type="button"], [type="reset"], [type="submit"], .button",
+//   button: ".button",
+// );
+
+@function selector($name){
+  @return ".#{$name}";
+}

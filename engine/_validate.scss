@@ -1,0 +1,17 @@
+// https://github.com/sass/sass/issues/543
+
+@function can-include($component-name){
+
+  // Noup. By default
+  $response: false;
+
+  $array-type: type-of($components);
+  @if $array-type == "map" {
+    $response: if(map-has-key($components, $component-name),true,false);
+  }
+  @else if $array-type == "list" {
+    $response: if(index($components, $component-name),true,false);
+  }
+
+  @return $response;
+}

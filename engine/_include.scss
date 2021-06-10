@@ -1,0 +1,22 @@
+@mixin reset($_name) {
+  @include exports("reset/#{$_name}") {
+    @content;
+  }
+}
+
+@mixin element($_name) {
+  @include exports("element/#{$_name}") {
+    #{selector($_name)} {
+      @content;
+    }
+  }
+}
+
+@mixin component($_name) {
+  @include exports("component/#{$_name}") {
+    #{selector($_name)} {
+      @content;
+    }
+  }
+
+}

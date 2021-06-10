@@ -1,0 +1,24 @@
+@mixin exports($_name) {
+
+  $export-nodes:   str-split($_name,"/");
+  $module-name:    nth($export-nodes,1);
+  $component-name: nth($export-nodes,2);
+
+//  .code {
+//    color: $component-name;
+//  }
+//
+//  $component-name: nth($component-name,2);
+//
+//  .code {
+//    color: $component-name;
+//  }
+
+  @if can-include($component-name) {
+    @include export-once($_name) {
+      @include css-comment("#{$component-name}");
+      @content
+    }
+  }
+
+}
