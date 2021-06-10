@@ -1,3 +1,14 @@
+$use-css-vars: true !default;
+
 @function var-color($_name) {
-	@return var(--#{$_name}-color);
+  @return var(--#{$_name}-color);
+}
+
+@function value($name) {
+  @if $use-css-vars {
+    @return var(--#{$_name}-color);
+  }
+  @else {
+    @return var(--#{$_name}-color);
+  }
 }
