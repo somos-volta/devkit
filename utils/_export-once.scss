@@ -1,16 +1,7 @@
 // EXPORT ONCE
-// We use this to prevent styles from being loaded multiple times for compenents that rely on other components.
-//$modules: () !default;
-//@mixin exports($name) {
-//  @if (index($modules, $name) == false) {
-//    $modules: append($modules, $name);
-//    @content;
-//  }
-//}
+// We use this to prevent styles from being loaded
+// multiple times for compenents that rely on other components.
 
-
-// IMPORT ONCE
-// We use this to prevent styles from being loaded multiple times for components that rely on other components.
 $modules: () !default;
 
 @mixin export-once($_name) {
@@ -28,8 +19,11 @@ $modules: () !default;
 
 }
 
-@mixin exports($_name) {
-	@include export-once($_name) {
-		@content
-	}
-}
+// OLD VERSION
+//$modules: () !default;
+//@mixin exports($name) {
+//  @if (index($modules, $name) == false) {
+//    $modules: append($modules, $name);
+//    @content;
+//  }
+//}
